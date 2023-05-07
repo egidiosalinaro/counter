@@ -1,0 +1,6 @@
+let data = [
+  {
+    plus: '+',
+    minus: '-'
+  },
+];
