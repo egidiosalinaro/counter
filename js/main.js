@@ -1,6 +1,0 @@
-let data = [
-  {
-    plus: '+',
-    minus: '-'
-  },
-];
