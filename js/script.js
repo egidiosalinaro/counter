@@ -1,4 +1,9 @@
-// writing objects on document
+// targeting elements from the DOM
+const numberZero = document.querySelector('#number')
+const minusButton = document.querySelector('#minus')
+const plusButton = document.querySelector('#plus')
+
+// writing objects on the document
 let numbers = [
   {
     starting: 0
@@ -11,7 +16,6 @@ let zero = numbers.map(function(item) {
     );
 })
 
-const numberZero = document.querySelector('#number')
 numberZero.innerHTML = zero.join('\n');
 
 let buttons = [
@@ -32,9 +36,6 @@ let major = buttons.map(function(item) {
     item.plus
   );
 })
-
-const minusButton = document.querySelector('#minus')
-const plusButton = document.querySelector('#plus')
 
 minusButton.innerHTML = minor.join('\n');
 plusButton.innerHTML = major.join('\n');
