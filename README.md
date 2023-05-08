@@ -1,5 +1,7 @@
 <a name="readme-top"></a>
 
+## counter - esercitazione JavaScript Basics di Egidio Salinaro
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -14,12 +16,11 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#implementation">Implementation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
   </ol>
 </details>
 
@@ -28,18 +29,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img width="400" alt="counter-egidio-salinaro" src="https://user-images.githubusercontent.com/129901135/236956535-3daee979-a717-4cde-ab81-029e8879aa40.png">
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+La commessa richiede la creazione di un'app che funga da contatore, abbastanza semplice nel suo sviluppo: in virtù di questo ho deciso di optare per un design minimal ed elegante, utilizzando sfumature del nero e del beige/ocra ed eliminando l'utilizzo di bordi netti.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+Il design è intrinsecamente responsive, gli elementi della UI sono mantenuti al centro.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -47,16 +41,7 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+Come da richiesta, per la realizzazione di questa app non è stato utilizzato nessun framework, né Jquery. La funzionalità principale viene implementata attraverso un unico file JavaScript interamente ideato e compilato da me.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -65,18 +50,27 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Per cominciare, ho creato tre semplici file .html, .css e .js
+
+Nel file .html ho creato le aree del contatore, con i <div> e i <button> necessari per il contatore, e le rispettive classi/id da utilizzare per stile e script. Ho lasciato, tuttavia, le sezioni prive di contenuto, per poterlo poi implementare attraverso l'utilizzo di JavaScript, come da richiesta.
+  * numero mostrato in display
+  ```sh
+    <div id="number"></div>
+  ```
+  
+  
+  * pulsanti
+  ```sh
+    <div id="buttons">
+      <button id="minus"></button>
+      <button id="plus"></button>
+    </div>  ```
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Una volta configurate le sezioni in .html e lo stile in .css utile a testare più facilmente le funzioni man mano che venivano implementate, ho cominciato ad inserire gli elementi numero e pulsanti all'interno del documento, tramite JavaScript, a scopo di esercitazione e come da richiesta.
 
-### Installation
+### Implementation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
@@ -101,9 +95,9 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Il gradiente dei colori e gli angoli smussati dei pulsanti concentrano l'attenzione dell'utente sull'unica funzione dell'app: utilizzare i pulsanti -/+ per diminuire/aumentare il numero mostrato sul display.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+L'intero codice sorgente HTML, CSS e JAVASCRIPT dell'app è contenuto in questa repository: l'app può essere utilizzata all'indirizzo https://counter-egidiosalinaro.netlify.app/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -119,8 +113,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Multi-language Support
     - [ ] Chinese
     - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
