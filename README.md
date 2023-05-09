@@ -52,7 +52,7 @@ Come da richiesta, per la realizzazione di questa app non è stato utilizzato ne
 
 Per cominciare, ho creato tre semplici file .html, .css e .js
 
-Nel file .html ho creato le aree del contatore, con i <div> e i <button> necessari per il contatore, e le rispettive classi/id da utilizzare per stile e script. Ho lasciato, tuttavia, le sezioni prive di contenuto, per poterlo poi implementare attraverso l'utilizzo di JavaScript, come da richiesta.
+Nel file .html ho creato le aree del contatore, con i _div_ e i _button_ necessari per il contatore, e le rispettive classi/id da utilizzare per stile e script. Ho lasciato, tuttavia, le sezioni prive di contenuto, per poterlo poi implementare attraverso l'utilizzo di JavaScript, come da richiesta.
   * numero mostrato in display
   ```sh
     <div id="number"></div>
