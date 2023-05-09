@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-## counter - esercitazione JavaScript Basics di Egidio Salinaro
+## counter - progetto JavaScript Basics di Egidio Salinaro
 
 <!-- TABLE OF CONTENTS -->
 <details>
