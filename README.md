@@ -64,29 +64,72 @@ Nel file .html ho creato le aree del contatore, con i <div> e i <button> necessa
     <div id="buttons">
       <button id="minus"></button>
       <button id="plus"></button>
-    </div>  ```
+    </div> 
+  ```
 
 ### Prerequisites
 
-Una volta configurate le sezioni in .html e lo stile in .css utile a testare più facilmente le funzioni man mano che venivano implementate, ho cominciato ad inserire gli elementi numero e pulsanti all'interno del documento, tramite JavaScript, a scopo di esercitazione e come da richiesta.
+Una volta configurate le sezioni in HTML e lo stile in CSS, utile a testare più facilmente le funzioni man mano che venivano implementate, ho cominciato ad inserire gli elementi _numero_ e _pulsanti_ all'interno del documento, tramite JavaScript, a scopo di esercitazione e come da richiesta.
+  * numero
+  ```sh
+    let numbers = [
+    {
+      starting: 0
+    },
+  ];
+
+  let zero = numbers.map(function(item) {
+    return (
+        item.starting
+      );
+  })
+
+  numberZero.innerHTML = zero.join('\n');
+```
+* pulsanti
+```sh
+  let buttons = [
+  {
+    plus: '+',
+    minus: '-'
+  },
+];
+
+  let minor = buttons.map(function(item) {
+    return (
+      item.minus
+    )
+  })
+
+  let major = buttons.map(function(item) {
+    return (
+      item.plus
+    );
+  })
+
+  minusButton.innerHTML = minor.join('\n');
+  plusButton.innerHTML = major.join('\n');
+```
 
 ### Implementation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Per l'implementazione della funzionalità counter, ho utilizzato due semplici funzioni. A scopo di esercitazione, ho ipotizzato di impedire all'utente di contare numeri negativi: per farlo avevo bisogno di bloccare la funzionalità del tasto - (meno) se il contatore fosse a zero, con un semplice operatore condizionale _if_.
+  
+```sh
+  var counter = 0;
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+  plusButton.onclick = function add(){
+    counter++;
+    document.querySelector('#number').innerHTML = counter
+  }
+
+  minusButton.onclick = function subtract(){
+    if (counter != 0) {
+      counter--;
+    }
+    document.querySelector('#number').innerHTML = counter
+  }
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -106,13 +149,14 @@ L'intero codice sorgente HTML, CSS e JAVASCRIPT dell'app è contenuto in questa 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] .html file
+- [x] .css file
+- [x] targeting DOM elements in .js
+- [x] displaying numbers and buttons in .html via .js
+- [x] calculator function
+    - [x] add
+    - [x] subtract
+      - [x] only if (counter =! 0)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
