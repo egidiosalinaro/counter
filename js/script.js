@@ -20,7 +20,7 @@ minusButton.setAttribute('id', 'minus');
 buttonsContainer.appendChild(plusButton);
 plusButton.setAttribute('id', 'plus');
 
-// writing objects on the document
+// writing objects in the document
 let numbers = [
   {
     starting: 0,
@@ -54,14 +54,16 @@ plusButton.innerHTML = major.join('\n');
 // developing counter main functions
 var counter = 0;
 
-plusButton.onclick = function add() {
-  counter++;
-  document.querySelector('#number').innerHTML = counter;
-};
+buttonsContainer.addEventListener('click', event => {
+  const target = event.target;
 
-minusButton.onclick = function subtract() {
-  if (counter != 0) {
+  if (target === plusButton) {
+    counter++;
+  }
+
+  if (target === minusButton && counter != 0) {
     counter--;
   }
-  document.querySelector('#number').innerHTML = counter;
-};
+
+  numberZero.innerHTML = counter;
+});
