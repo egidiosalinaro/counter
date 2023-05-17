@@ -90,7 +90,7 @@ plusButton.setAttribute('id', 'plus');
 Sono passato poi all'inserimento deli elementi _numero_ e _pulsanti_ all'interno del documento, tramite JavaScript, a scopo di esercitazione e come da richiesta.
   * numero
   ```sh
-    let numbers = [
+  let numbers = [
     {
       starting: 0
     },
