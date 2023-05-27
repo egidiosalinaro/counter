@@ -64,7 +64,7 @@ In the .html file I created a single _div_, with the relative _id_ to then be te
 
 ### :pencil: Prerequisites
 
-Once the style was configured in CSS, which was useful for testing functions more easily as they were being implemented, I created functions to insert all the sections I needed via JavaScript, using the DOM manipulation API, also introducing for each section the specific _id_ used in css.
+Once the style was configured in CSS, which was useful for testing functions more easily as they were being implemented, I created a function to insert all the sections I needed via JavaScript, using the DOM manipulation API, also introducing for each section the specific _id_ used in css.
 
 * creating and naming elements in the counter
 ```sh
@@ -79,22 +79,18 @@ function createCounterElement(tagHtml, attribute, content) {
 
 createCounterElement('div', 'number', 0);
 createCounterElement('div', 'buttons', '');
+createCounterElement('button', 'minus', '-');
+createCounterElement('button', 'plus', '+');
+
 const numberZero = document.querySelector('#number');
 const buttonsBox = document.querySelector('#buttons');
-```
-* creating and naming elements in the buttons section
-```sh
-function createButtonsElement(tagHtml, attribute, content) {
-  const newElement = document.createElement(tagHtml);
-  newElement.setAttribute('id', attribute);
-  newElement.innerHTML = content;
-  buttonsBox.appendChild(newElement);
-}
-
-createButtonsElement('button', 'minus', '-');
-createButtonsElement('button', 'plus', '+');
 const minusButton = document.querySelector('#minus');
 const plusButton = document.querySelector('#plus');
+```
+* moving buttons in the buttonsBox
+```sh
+buttonsBox.appendChild(minusButton);
+buttonsBox.appendChild(plusButton);
 ```
 
 ### :gear: Implementation
