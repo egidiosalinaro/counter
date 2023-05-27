@@ -1,154 +1,121 @@
 <a name="readme-top"></a>
 
-## counter - progetto JavaScript Basics di Egidio Salinaro
+## counter - JavaScript Basics project by Egidio Salinaro
 
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#question-about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#bricks-built-with">Built With</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#clapper-getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#implementation">Implementation</a></li>
+        <li><a href="#pencil-prerequisites">Prerequisites</a></li>
+        <li><a href="#gear-implementation">Implementation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#joystick-usage">Usage</a></li>
+    <li><a href="#world_map-roadmap">Roadmap</a></li>
   </ol>
 </details>
 
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## :question: About The Project
 
 <img width="400" alt="counter-egidio-salinaro" src="https://user-images.githubusercontent.com/129901135/236956535-3daee979-a717-4cde-ab81-029e8879aa40.png">
 
-La commessa richiede la creazione di un'app che funga da contatore, abbastanza semplice nel suo sviluppo: in virtù di questo ho deciso di optare per un design minimal ed elegante, utilizzando sfumature del nero e del beige/ocra ed eliminando l'utilizzo di bordi netti.
-
-Il design è intrinsecamente responsive, gli elementi della UI sono mantenuti al centro.
+The order requires the creation of an app that functions as a counter: I decided to opt for a minimal and elegant design, using shades of black and beige/ochre colors, and eliminating the use of sharp edges.
+Design is inherently responsive, UI elements are kept in the center of the window.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-### Built With
+### :bricks: Built With
 
-Come da richiesta, per la realizzazione di questa app non è stato utilizzato nessun framework, né Jquery. Le sezioni e la funzionalità principale vengono implementate attraverso un unico file JavaScript interamente ideato e compilato da me.
+As requested, no framework was used to create this app. Sections and main functionalities are implemented through a single JavaScript file entirely designed and compiled by me.
+
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="30" height="30"/>&nbsp;&nbsp;&nbsp; HTML5 </br>
+
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="30" height="30"/>&nbsp;&nbsp;&nbsp; CSS </br>
+
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="30" height="30"/>&nbsp;&nbsp;&nbsp; JAVASCRIPT </br>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## :clapper: Getting Started
 
-Per cominciare, ho creato tre semplici file .html, .css e .js
+To begin, I created three simple .html, .css and .js files
 
-Nel file .html ho creato un solo _div_, con il rispettivo _id_ da tergettizzare poi per stile e script. Ho lasciato il wrapper privo di contenuto, per poterlo poi implementare attraverso l'utilizzo di JavaScript, come da richiesta.
+In the .html file I created a single _div_, with the relative _id_ to then be tergetized by style and script. I left the wrapper with no content, to be able to implement it later using JavaScript, as requested.
   ```sh
     <div id="counter"></div>
   ```
 
-### Prerequisites
+### :pencil: Prerequisites
 
-Una volta configurato lo stile in CSS, utile a testare più facilmente le funzioni man mano che venivano implementate, ho inserito tramite JavaScript tutte le sezioni di cui avevo bisogno, utilizzando le API di manipolazione del DOM, introducendo per ognuna anche gli specifici _id_ utilizzati in CSS.
-* creazione degli elementi
+Once the style was configured in CSS, which was useful for testing functions more easily as they were being implemented, I created functions to insert all the sections I needed via JavaScript, using the DOM manipulation API, also introducing for each section the specific _id_ used in css.
+
+* creating and naming elements in the counter
 ```sh
-// creating main elements in the DOM
-const counterContainer = document.querySelector('#counter');
-const buttonsContainer = document.createElement('div');
+const counterBox = document.querySelector('#counter');
 
-const numberZero = document.createElement('div');
-const minusButton = document.createElement('button');
-const plusButton = document.createElement('button');
+function createCounterElement(tagHtml, attribute, content) {
+  const newElement = document.createElement(tagHtml);
+  newElement.setAttribute('id', attribute);
+  newElement.innerHTML = content;
+  counterBox.appendChild(newElement);
+}
+
+createCounterElement('div', 'number', 0);
+createCounterElement('div', 'buttons', '');
+const numberZero = document.querySelector('#number');
+const buttonsBox = document.querySelector('#buttons');
 ```
-* innestamento e attribuzione degli _ids_
+* creating and naming elements in the buttons section
 ```sh
-// nesting number display and creating relative id
-counterContainer.appendChild(numberZero);
-numberZero.setAttribute('id', 'number');
+function createButtonsElement(tagHtml, attribute, content) {
+  const newElement = document.createElement(tagHtml);
+  newElement.setAttribute('id', attribute);
+  newElement.innerHTML = content;
+  buttonsBox.appendChild(newElement);
+}
 
-// nesting buttons and creating relative ids
-counterContainer.appendChild(buttonsContainer);
-buttonsContainer.setAttribute('id', 'buttons');
-
-buttonsContainer.appendChild(minusButton);
-minusButton.setAttribute('id', 'minus');
-
-buttonsContainer.appendChild(plusButton);
-plusButton.setAttribute('id', 'plus');
+createButtonsElement('button', 'minus', '-');
+createButtonsElement('button', 'plus', '+');
+const minusButton = document.querySelector('#minus');
+const plusButton = document.querySelector('#plus');
 ```
 
-Sono passato poi all'inserimento degli elementi _numero_ e _pulsanti_ all'interno del documento, tramite JavaScript, a scopo di esercitazione e come da richiesta.
-  * numero
-  ```sh
-  let numbers = [
-    {
-      starting: 0
-    },
-  ];
+### :gear: Implementation
 
-  let zero = numbers.map(function(item) {
-    return (
-        item.starting
-      );
-  })
+For the counter functionality, I implemented only one function on the previously created _button_ wrapper, to practice with the use of _event delegation_. For practice purposes, I assumed to prevent the user from counting negative numbers: to do so I needed to block the functionality of the - (minus) key if the counter was zero, with a simple _if_ conditional operator.
 
-  numberZero.innerHTML = zero.join('\n');
-```
-* pulsanti
-```sh
-  let buttons = [
-  {
-    plus: '+',
-    minus: '-'
-  },
-];
-
-  let minor = buttons.map(function(item) {
-    return (
-      item.minus
-    )
-  })
-
-  let major = buttons.map(function(item) {
-    return (
-      item.plus
-    );
-  })
-
-  minusButton.innerHTML = minor.join('\n');
-  plusButton.innerHTML = major.join('\n');
-```
-
-### Implementation
-
-Per l'implementazione della funzionalità counter, ho utilizzato una sola funzione sul wrapper dei pulsanti precedentemente creato, per esercitarmi nell'utilizzo dell'event delegation. A scopo di esercitazione, ho ipotizzato di impedire all'utente di contare numeri negativi: per farlo avevo bisogno di bloccare la funzionalità del tasto - (meno) se il contatore fosse a zero, con un semplice operatore condizionale _if_.
   
  ```sh
-  var counter = 0;
+let counter = 0;
 
-  buttonsContainer.addEventListener('click', event => {
-    const target = event.target;
+buttonsBox.addEventListener('click', event => {
+  const target = event.target;
 
-    if (target === plusButton) {
-      counter++;
-    }
-
-    if (target === minusButton && counter != 0) {
-      counter--;
-    }
-
-    numberZero.innerHTML = counter;
-  });
+  if (target === plusButton) {
+    counter++;
+  }
+  if (target === minusButton && counter != 0) {
+    counter--;
+  }
+  numberZero.innerHTML = counter;
+});
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -156,18 +123,18 @@ Per l'implementazione della funzionalità counter, ho utilizzato una sola funzio
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## :joystick: Usage
 
-Il gradiente dei colori e gli angoli smussati dei pulsanti concentrano l'attenzione dell'utente sull'unica funzione dell'app: utilizzare i pulsanti -/+ per diminuire/aumentare il numero mostrato sul display.
+Color gradients and rounded corners of the buttons focus the user's attention on the only functionality of the app: use the -/+ buttons to decrease/increase the number shown on the display.
 
-L'intero codice sorgente HTML, CSS e JAVASCRIPT dell'app è contenuto in questa repository: l'app può essere utilizzata all'indirizzo https://counter-egidiosalinaro.netlify.app/
+The entire HTML, CSS and JAVASCRIPT source code of the app is contained in this repository: the app can be used at https://counter-egidiosalinaro.netlify.app/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- ROADMAP -->
-## Roadmap
+## :world_map: Roadmap
 
 - [x] .html file
 - [x] .css file
