@@ -10,21 +10,17 @@ function createCounterElement(tagHtml, attribute, content) {
 
 createCounterElement('div', 'number', 0);
 createCounterElement('div', 'buttons', '');
+createCounterElement('button', 'minus', '-');
+createCounterElement('button', 'plus', '+');
+
 const numberZero = document.querySelector('#number');
 const buttonsBox = document.querySelector('#buttons');
-
-// creating and naming elements in the buttons section
-function createButtonsElement(tagHtml, attribute, content) {
-  const newElement = document.createElement(tagHtml);
-  newElement.setAttribute('id', attribute);
-  newElement.innerHTML = content;
-  buttonsBox.appendChild(newElement);
-}
-
-createButtonsElement('button', 'minus', '-');
-createButtonsElement('button', 'plus', '+');
 const minusButton = document.querySelector('#minus');
 const plusButton = document.querySelector('#plus');
+
+// moving buttons in the buttonsBox
+buttonsBox.appendChild(minusButton);
+buttonsBox.appendChild(plusButton);
 
 // developing counter main functions
 let counter = 0;
