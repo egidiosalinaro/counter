@@ -1,6 +1,10 @@
 <a name="readme-top"></a>
 
-## counter - JavaScript Basics project by Egidio Salinaro
+  <h1 align="center">simple counter</h1>
+
+  <p align="center">
+    A JavaScript Basic project by Egidio Salinaro
+  </p>
 
 <!-- TABLE OF CONTENTS -->
 <details>
